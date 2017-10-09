@@ -2,11 +2,13 @@
 
 var express = require('express');
 var app = express();
-
+var mongoose = require("mongoose");
 
  //// Routes init
  var indexRoutes = require("./routes/index.js");
  
+ //// Mongoose connect
+ mongoose.connect('mongodb://localhost/bookme',{ useMongoClient: true });
  
  //// App setup
  app.set("view engine", "ejs");
