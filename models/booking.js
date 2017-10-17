@@ -1,10 +1,9 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-//// booking schema setup
-var bookingSchema = new mongoose.Schema({
+const bookingSchema = new mongoose.Schema({
 
 });
 
-var booking = mongoose.model("Booking", bookingSchema);
+const booking = mongoose.model("Booking", bookingSchema);
 
 module.exports = booking;
