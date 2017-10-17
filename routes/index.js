@@ -1,14 +1,4 @@
-var express = require("express");
-var router = express.Router();
-
-
-//// Routes
-
-
-//// Landing Route
-router.get("/", function (req, res) {
-	res.render("landing");
-});
-
+const express = require("express");
+const router = express.Router();
 
 module.exports = router;

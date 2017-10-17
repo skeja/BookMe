@@ -1,23 +1,14 @@
-//// Var init
+// Var init
+const express = require('express');
+const app = express();
+const mongoose = require("mongoose");
 
-var express = require('express');
-var app = express();
-var mongoose = require("mongoose");
+const indexRoutes = require('./routes');
+ 
+mongoose.connect('mongodb://localhost/bookme',{ useMongoClient: true });
 
- //// Routes init
- var indexRoutes = require("./routes/index.js");
+app.use(indexRoutes);
  
- //// Mongoose connect
- mongoose.connect('mongodb://localhost/bookme',{ useMongoClient: true });
- 
- //// App setup
- app.set("view engine", "ejs");
- 
- //// Routes config
- app.use(indexRoutes);
- 
-
-//// Port listening
 app.listen(process.env.PORT || 3000, function () {
   console.log('App running on port 3000!');
 });
