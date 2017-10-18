@@ -1,0 +1,23 @@
+{
+  "name": "bookme",
+  "version": "1.0.0",
+  "description": "App about managing apartment bookings",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skeja/BookMe.git"
+  },
+  "author": "Ante Skejic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skeja/BookMe/issues"
+  },
+  "homepage": "https://github.com/skeja/BookMe#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongoose": "^4.12.1"
+  }
+}
