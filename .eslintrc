@@ -1,5 +1,5 @@
 {
-  "root": "true",
+  "root": true,
   "extends": "standard",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -10,23 +10,23 @@
     "node": true
   },
   "rules": {
-    "indent": 0, // EditorConfig
-    // allow paren-less arrow functions
-    'arrow-parens': 'off',
-    // warn if there is a trailing comma
-    'comma-dangle': ['warn', 'never'],
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': isDev ? 'warn' : 'error',
-    // allow dead code during development
-    'no-unreachable': isDev ? 'warn' : 'error',
-    // semicolons are necessary
-    'semi': ['warn', 'always'],
-    // add space before function parameters
-    'space-before-function-paren': ['error', {
-      anonymous: 'always',
-      named: 'never'
-    }]
+    "indent": 0,
+    "arrow-parens": "off",
+    "comma-dangle": [
+      "warn",
+      "never"
+    ],
+    "generator-star-spacing": "off",
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ]
   }
 }
