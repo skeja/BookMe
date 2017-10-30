@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const booking = require('./models/booking.js');
+const user = require('./models/user.js');
+const note = require('./models/user.js');
 
 const indexRoutes = require('./routes');
 
