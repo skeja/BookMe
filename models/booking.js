@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  author: String,
+  author: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user'
+    },
+    username: String
+  },
   startDate: Date,
   endDate: Date,
   price: Number,
