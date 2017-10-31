@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
 
 const noteSchema = new mongoose.Schema({
-  tite: String,
-  description: String,
-author: {
+  tite: {type: String, required: true},
+  description: {type: String, required: true},
+  author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user'
-    },
-    username: String
+        },
+    username: String,
+    required: true
   }
 });
 
