@@ -6,14 +6,15 @@ const bookingSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user'
     },
-    username: String
+    username: String,
+    required: true
   },
-  startDate: Date,
-  endDate: Date,
-  price: Number,
-  origin: String,
-  guests: Number,
-  nation: String
+  startDate: {type: Date, required: true},
+  endDate: {type: Date, required: true},
+  price: {type: Number, required: true, min: 0.01},
+  origin: {type: String, required: true},
+  guests: {type: Number, required: true, min: 1},
+  nation: {type: String}
 });
 
 const booking = mongoose.model('Booking', bookingSchema);
