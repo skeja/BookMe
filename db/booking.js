@@ -2,12 +2,7 @@ const { model, Schema } = require('mongoose');
 const { ObjectId } = Schema.Types;
 
 const bookingSchema = new Schema({
-  author: {
-    id: {
-      type: ObjectId,
-      ref: 'user'
-    }
-  },
+  authorId: { type: ObjectId, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   price: { type: Number, required: true, min: 0.01 },
