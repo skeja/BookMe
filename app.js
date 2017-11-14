@@ -1,13 +1,14 @@
-// Var init
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
+require('./db');
 
-const indexRoutes = require('./routes');
+const app = express();
+
+const routes = require('./routes');
 
 mongoose.connect('mongodb://localhost/bookme', { useMongoClient: true });
 
-app.use(indexRoutes);
+app.use(routes);
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('App running on port 3000!');
