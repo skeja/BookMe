@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
 require('./db');
 
 const app = express();
@@ -7,6 +9,7 @@ const app = express();
 const routes = require('./routes');
 
 mongoose.connect('mongodb://localhost/bookme', { useMongoClient: true });
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(routes);
 
