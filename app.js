@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(routes);
 
+app.use((err, req, res) => {
+  res.status(500).send(err.message);
+});
+
 app.listen(process.env.PORT || 3000, function () {
   console.log('App running on port 3000!');
 });
