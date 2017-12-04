@@ -6,14 +6,12 @@ require('./db');
 
 const app = express();
 
-const routes = require('./routes');
-
 mongoose.connect('mongodb://localhost/bookme', { useMongoClient: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(routes);
+app.use(require('./routes'));
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
 

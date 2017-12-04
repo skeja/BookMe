@@ -1,8 +1,7 @@
-const { model, Schema } = require('mongoose');
-const { ObjectId } = Schema.Types;
+const mongoose = require('mongoose');
 
-const bookingSchema = new Schema({
-  authorId: { type: ObjectId, required: true },
+const bookingSchema = new mongoose.Schema({
+  // authorId: { type: mongoose.Schema.Types.ObjectId, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   price: { type: Number, required: true, min: 0.01 },
@@ -11,4 +10,4 @@ const bookingSchema = new Schema({
   nation: { type: String }
 });
 
-module.exports = model('Booking', bookingSchema);
+module.exports = mongoose.model('Booking', bookingSchema);

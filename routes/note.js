@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Note } = require('./db');
+const { Note } = require('../db');
 
 function create(req, res, next) {
    return Note.create(req.body)
@@ -30,6 +30,7 @@ function update(req, res, next) {
 
 function remove(req, res, next) {
   return Note.findByIdAndRemove(req.params.id)
+    .then(res.send('Note deleted!'))
     .catch(err => next(err));
 };
 

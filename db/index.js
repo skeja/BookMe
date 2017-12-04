@@ -1,6 +1,6 @@
-const Booking = require('./db/booking');
-const User = require('./db/user');
-const Note = require('./db/note');
+const Booking = require('./booking');
+const User = require('./user');
+const Note = require('./note');
 
 module.exports = {
   Booking,
