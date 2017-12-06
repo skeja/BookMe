@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
+  // TODO: add user first then connect booking with user
   // authorId: { type: mongoose.Schema.Types.ObjectId, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
