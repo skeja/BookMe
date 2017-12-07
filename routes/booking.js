@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Booking } = require('./db');
+const { Booking } = require('../db');
 
 function create(req, res, next) {
    return Booking.create(req.body)
@@ -24,12 +24,13 @@ function find(req, res, next) {
 
 function update(req, res, next) {
   return Booking.findByIdAndUpdate(req.params.id, req.body)
-    .then(updatedBooking => res.send(updatedBooking))
+    .then(booking => res.send(booking))
     .catch(err => next(err));
 };
 
 function remove(req, res, next) {
   return Booking.findByIdAndRemove(req.params.id)
+    .then(booking => res.send(booking))
     .catch(err => next(err));
 };
 
