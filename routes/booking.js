@@ -30,7 +30,7 @@ function update(req, res, next) {
 
 function remove(req, res, next) {
   return Booking.findByIdAndRemove(req.params.id)
-    .then(res.send('Booking deleted!'))
+    .then(booking => res.send(booking))
     .catch(err => next(err));
 };
 

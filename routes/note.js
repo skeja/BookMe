@@ -30,7 +30,7 @@ function update(req, res, next) {
 
 function remove(req, res, next) {
   return Note.findByIdAndRemove(req.params.id)
-    .then(res.send('Note deleted!'))
+    .then(note => res.send(note))
     .catch(err => next(err));
 };
 
