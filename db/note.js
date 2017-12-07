@@ -1,10 +1,10 @@
-const { model, Schema } = require('mongoose');
-const { ObjectId } = Schema.Types;
+const mongoose = require('mongoose');
 
-const noteSchema = new Schema({
-  tite: { type: String, required: true },
-  description: { type: String, required: true },
-  authorId: { type: ObjectId, required: true }
+const noteSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true }
+  // TODO: add user first then connect note with user
+  // authorId: { type: mongoose.Schema.Types.ObjectId, required: true }
 });
 
-module.exports = model('Note', noteSchema);
+module.exports = mongoose.model('Note', noteSchema);
