@@ -2,7 +2,13 @@ const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
   // TODO: add user first then connect booking with user
-  // authorId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  // author: {
+  //         id: {
+  //           type: mongoose.Schema.Types.ObjectId,
+  //           ref: 'User'
+  //         },
+  //         username: String
+  //       },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   price: { type: Number, required: true, min: 0.01 },
