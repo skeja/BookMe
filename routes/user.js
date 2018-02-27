@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require('../db');
+const { hash } = require('../middleware/middleware');
 
 function create(req, res, next) {
    return User.create(req.body)
@@ -35,9 +36,21 @@ function remove(req, res, next) {
 };
 
 router.get('/user', list);
-router.post('/user', create);
+router.post('/user', hashPassword, create);
 router.get('/user/:id', find);
 router.delete('/user/:id', remove);
-router.put('/user/:id', update);
+router.put('/user/:id', hashPassword, update);
 
 module.exports = router;
+
+function hashPassword(req, res, next) {
+  const password = req.body.password;
+  if (!password) {
+    return next();
+  }
+
+  hash(password).then(hash => {
+    req.body.password = hash;
+    next();
+  });
+}
