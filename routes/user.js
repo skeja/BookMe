@@ -36,21 +36,9 @@ function remove(req, res, next) {
 };
 
 router.get('/user', list);
-router.post('/user', hashPassword, create);
+router.post('/user', create);
 router.get('/user/:id', find);
 router.delete('/user/:id', remove);
-router.put('/user/:id', hashPassword, update);
+router.put('/user/:id', update);
 
 module.exports = router;
-
-function hashPassword(req, res, next) {
-  const password = req.body.password;
-  if (!password) {
-    return next();
-  }
-
-  hash(password).then(hash => {
-    req.body.password = hash;
-    next();
-  });
-}
