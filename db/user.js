@@ -11,7 +11,15 @@ userSchema.pre('save', function (next) {
   hash(password).then(hash => {
     this.password = hash;
     next();
+    });
   });
+
+userSchema.pre('update', function (next) {
+  const password = this.password;
+  hash(password).then(hash => {
+    this.password = hash;
+    next();
+    });
   });
 
 module.exports = mongoose.model('User', userSchema);
