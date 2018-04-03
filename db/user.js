@@ -7,25 +7,19 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true, select: false }
 });
 
-userSchema.pre('save', function (next) {
-  const password = this.password;
-  hash(password).then(hash => {
-    this.password = hash;
-    next();
-  });
+userSchema.pre('save', async function (next) {
+  this.password = await hash(this.password);
+  next();
 });
 
-userSchema.pre('update', function (next) {
-  const password = this.password;
-  hash(password).then(hash => {
-    this.password = hash;
-    next();
-  });
+userSchema.pre('update', async function (next) {
+  this.password = await hash(this.password);
+  next();
 });
 
 Object.assign(userSchema.methods, {
-  validPassword(password, cb) {
-    bcrypt.compare(password, this.password, cb);
+  validatePassword(password) {
+    return bcrypt.compare(password, this.password);
   }
 });
 
