@@ -11,17 +11,17 @@ userSchema.pre('save', function (next) {
   const password = this.password;
   hash(password).then(hash => {
     this.password = hash;
-  next();
+    next();
   });
-  });
+});
 
 userSchema.pre('update', function (next) {
   const password = this.password;
   hash(password).then(hash => {
     this.password = hash;
-  next();
+    next();
   });
-  });
+});
 
 Object.assign(userSchema.methods, {
   validPassword(password, cb) {
